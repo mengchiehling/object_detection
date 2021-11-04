@@ -1,0 +1,19 @@
+# conda env export --no-builds | grep -v "^prefix: " > imported_packages.yml
+name: mask-rcnn
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - numpy=1.18.1
+  - scipy
+  - Pillow
+  - cython
+  - matplotlib
+  - scikit-image
+  - tensorflow-gpu=1.13.1
+  - opencv=4.2.0
+  - h5py
+  - imgaug
+  - IPython[all]
+  - pip:
+      - keras==2.0.8

@@ -1,0 +1,6 @@
+classes=69
+train  = /home/ubuntu/data/train.txt
+valid  = /home/ubuntu/data/test.txt
+backup = /home/ubuntu/models
+names  = /home/ubuntu/data/classes.names
+

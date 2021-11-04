@@ -1,0 +1,41 @@
+INFERENCE_MODEL:
+  Mask_RCNN: 'resnet101-YYYY-MM-DD'
+  YOLO: 'darknet53_YYYY-MM-DD'
+
+model_architecture:
+  backbone: 'resnet101'
+  object_classification:
+    type: type
+    object: object
+  classes:
+    object: ['A', 'B', 'C']
+  rpn_anchor_ratio: [0.5, 1, 2]
+  top_down_pyramid_size: 256
+  exclude_rpn_model: yes
+  optimizer_params:
+    class_name: 'sgd'
+    adam:
+      lr: 0.001
+      decay: 0.1
+      amsgrad: no
+    sgd:
+      lr: 0.001
+      momentum: 0.9
+      clipnorm: 5
+  fit_params:
+    epochs: 90
+    layers: 'heads'
+    STEPS_PER_EPOCH: 2000
+    VALIDATION_STEPS: 300
+    use_multiprocessing: no
+    verbose: 1
+    callbacks:
+      ModelCheckpoint:
+        save_weights_only: yes
+        save_best_only: yes
+        monitor: 'val_loss'
+        verbose: 1
+      LearningRateScheduler:
+        burn_in: 20
+        steps: [50, 70]
+        scalers: [0.1, 0.4]
