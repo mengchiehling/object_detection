@@ -1,6 +1,6 @@
 import os
 
-from visual_search.settings import INFERENCE_MODEL
+from algorithms.settings import INFERENCE_MODEL
 
 
 def load_model_key(model_name: str):
