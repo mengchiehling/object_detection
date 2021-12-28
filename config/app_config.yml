@@ -39,3 +39,10 @@ model_architecture:
         burn_in: 20
         steps: [50, 70]
         scalers: [0.1, 0.4]
+
+delf_architecture:
+  LINK: 'https://tfhub.dev/google/delf/1'
+    MODULE_INPUTS:
+      score_threshold: 100.0
+      image_scales: [0.25, 0.3536, 0.5, 0.7071, 1.0, 1.4142, 2.0]
+      max_feature_num: 1000
