@@ -1,9 +1,9 @@
-import configparser
+import os
 from typing import Dict
 
 import yaml
 
-from visual_search.io.path_definition import get_file
+from algorithms.io.path_definition import get_file
 
 
 def _load_yaml(file) -> Dict:
@@ -22,3 +22,15 @@ def get_app_config() -> Dict:
 
     app_config = _load_yaml(get_file("config/app_config.yml"))
     return app_config
+
+
+def set_bayesian_optimization_config() -> Dict:
+
+    """
+    Get the parameters for Bayesian optimization for hyperparameters
+
+    Returns:
+        a dictionary containing the hyper parameters for Bayesian optimization process
+    """
+
+    return _load_yaml(get_file(os.path.join('config', 'bayesian_optimization_config.yml')))

@@ -1,0 +1,4 @@
+bayesianOptimization:
+  init_points: 8
+  n_iter: 24
+  acq: 'ucb'

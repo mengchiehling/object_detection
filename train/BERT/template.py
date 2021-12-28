@@ -1,7 +1,10 @@
 """
 Script for transfer learning with BERT model with hyperparameter optimization with Bayesian optimization
 
-command line: python -m train.models._relevance_bert_v2 --model_type=<str> --model_name=<str>
+BERT convention:
+in the dataframe, data is under column `text` and target is under column `label`
+
+command line: python -m train.BERT.template --model_type=<str> --model_name=<str>
 --num_labels=<int> --optimizer=<str> --use_cuda=<boolean> --balanced=<boolean>
 """
 
@@ -16,8 +19,8 @@ from sklearn.metrics import f1_score
 from scipy.special import softmax
 from simpletransformers.classification import ClassificationModel
 
-from train.utils.utils import production_training_data_preparation, optimization_process
-from review_filter.settings import DIR_TRAINED_MODELS
+from train.utils.utils import production_training_data_preparation
+from algorithms.utils.optimization import optimization_process
 
 """
 BERT german pretrained models:

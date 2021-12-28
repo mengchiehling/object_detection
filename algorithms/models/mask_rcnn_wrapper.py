@@ -20,7 +20,7 @@ import numpy as np
 import tensorflow as tf
 
 import train.Mask_RCNN.mrcnn.model as modellib
-from train.Mask_RCNN.fashion.fashion import InferenceConfig
+from train.Mask_RCNN.template.template import InferenceConfig
 from algorithms.utils.utils_basic import load_model_key
 from algorithms.io.path_definition import get_project_dir
 
@@ -42,14 +42,14 @@ class MaskRcnnInferenceWrapper:
     Make sure the input image is in RGB format
 
     class_id:
-        0: shoe
-        1: kleider
-        2: t-shirt
+        0: a
+        1: b
+        2: c
     '''
 
-    id_category_mapping = {0: 'shoe',
-                           1: 'kleider',
-                           2: 't-shirt'}
+    id_category_mapping = {0: 'a',
+                           1: 'b',
+                           2: 'c'}
 
     def __init__(self):
         """

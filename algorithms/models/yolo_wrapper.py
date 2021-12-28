@@ -5,7 +5,6 @@ import cv2
 import numpy as np
 from cv2.dnn import readNetFromDarknet, DNN_BACKEND_OPENCV, DNN_TARGET_CPU, blobFromImage, NMSBoxes
 
-from algorithms.settings import INFERENCE_MODEL
 from algorithms.utils.utils_basic import load_model_key
 from algorithms.io.path_definition import get_project_dir
 
@@ -244,17 +243,3 @@ class YoloInferenceWrapper:
             detections[class_id]['class_scores'] = cls_class_scores[indexes]
 
         return detections
-
-
-if __name__ == "__main__":
-
-    yolo_wrapper = YoloInferenceWrapper()
-
-    import cv2
-
-    full_filename = os.path.join(get_project_dir(), 'nike_test_image.jpg')
-
-    img = cv2.imread(full_filename)
-    img = img[:, :, [2, 1, 0]]
-
-    yolo_wrapper.predict(img)
